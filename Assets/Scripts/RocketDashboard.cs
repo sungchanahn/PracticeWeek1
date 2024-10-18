@@ -6,6 +6,7 @@ public class RocketDashboard : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentScoreTxt;
     [SerializeField] private TextMeshProUGUI highScoreTxt;
+    [SerializeField] private TextMeshProUGUI currentHeight;
     [SerializeField] private GameObject rocket;
     private int highScore = 0;
     private int currentScore = 0;
@@ -21,17 +22,19 @@ public class RocketDashboard : MonoBehaviour
 
     private void Update()
     {
+        currentHeight.text = $"{(int)rocket.transform.position.y} M";
+
         if ((int)rocket.transform.position.y > currentScore)
         {
             currentScore = (int)rocket.transform.position.y;
         }
-        currentScoreTxt.text = $"{currentScore} M";
+        currentScoreTxt.text = $"Now Score: {currentScore} M";
 
         if (highScore < currentScore)
         {
             highScore = currentScore;
         }
-        highScoreTxt.text = $"{highScore} M";
+        highScoreTxt.text = $"Best Score: {highScore} M";
     }
 
     private void SaveHighScore()
