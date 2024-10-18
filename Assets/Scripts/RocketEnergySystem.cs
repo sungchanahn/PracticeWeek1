@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class RocketEnergySystem : MonoBehaviour
 {
     [SerializeField] private Image fuelbar;
+    [SerializeField] private float addfuel;
     Rocket rocket;
 
     private float maxFuel;
@@ -18,7 +19,7 @@ public class RocketEnergySystem : MonoBehaviour
     {
         if (rocket.Fuel < maxFuel)
         {
-            rocket.Fuel += 0.1f;
+            rocket.Fuel += 0.1f * Time.deltaTime * addfuel;
         }
         float amount = rocket.Fuel / maxFuel;
         FuelBarAmount(amount);

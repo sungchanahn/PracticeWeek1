@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuelbar: {fileID: 698939539}
+  addfuel: 10
 --- !u!1 &142220395
 GameObject:
   m_ObjectHideFlags: 0
